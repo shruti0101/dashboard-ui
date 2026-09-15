@@ -38,8 +38,30 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Team Inbox', href: '/team-inbox', icon: 'team-inbox' },
-  { label: 'RCS App', href: '/rcs-app', icon: 'rcs' },
-  { label: 'Automations', href: '/automations', icon: 'automations' },
+
+  
+{
+  label: 'RCS App',
+  href: '/rcs-app/broadcast',
+  icon: 'rcs',
+  children: [
+    { label: 'Broadcast Rcs', href: '/rcs-app/broadcast' },
+    { label: 'Rcs Utility', href: '/rcs-app/utility' },
+    { label: 'Rcs Report', href: '/rcs-app/report' },
+  ],
+},
+
+ {
+  label: 'Automations',
+  href: '/automations/flow-builder',
+  icon: 'automations',
+  children: [{ label: 'Flow Builder', href: '/automations/flow-builder' }],
+},
   { label: 'Verify', href: '/verify', icon: 'verify' },
-  { label: 'Developer', href: '/developer', icon: 'developer' },
+{
+  label: 'Developer',
+  href: '/developer/api-key',
+  icon: 'developer',
+  children: [{ label: 'Api Key', href: '/developer/api-key' }],
+},
 ];

@@ -14,7 +14,10 @@ import {
   BarChart3,
   FileText,
   Link2,
+  List
+
 } from 'lucide-react';
+import Image from 'next/image';
 import { useState } from 'react';
 import clsx from 'clsx';
 import { NAV_ITEMS, NavItem } from '@/lib/nav';
@@ -28,6 +31,7 @@ const ICONS: Record<NavItem['icon'], React.ElementType> = {
   automations: Workflow,
   verify: ShieldCheck,
   developer: Code2,
+  
 };
 
 // Per-child icons for sidebar sub-items, keyed by label. Falls back to Home.
@@ -38,6 +42,11 @@ const CHILD_ICONS: Record<string, React.ElementType> = {
   'Utility & Template': FileText,
   'Connect Wa Number': Link2,
   'Whatsapp Report': BarChart3,
+  'Broadcast Rcs': MessageCircle,
+'Rcs Utility': Users,
+'Rcs Report': BarChart3,
+'Flow Builder': Workflow,
+'Api Key': List,
 };
 
 export default function Sidebar({ activeHref = '/' }: { activeHref?: string }) {
@@ -49,17 +58,15 @@ export default function Sidebar({ activeHref = '/' }: { activeHref?: string }) {
   return (
     <aside className="hidden lg:flex lg:w-[248px] shrink-0 flex-col bg-sidebar h-screen sticky top-0">
       {/* Logo */}
-      <div className="h-[64px] flex items-center px-4 bg-white">
-        <div className="flex flex-col leading-tight">
-          <span className="text-[15px] font-bold text-slate-800">
-            India<span className="text-brand">Digital</span>SMS
-            <sup className="text-[9px] align-super font-semibold text-slate-500">®</sup>
-          </span>
-          <span className="text-[9px] text-slate-400 tracking-wide">
-            The world&apos;s best Messaging Platform
-          </span>
-        </div>
-      </div>
+     <div className="h-[100px] flex items-center ml-5">
+  <Image
+    src="/logo.jpg"
+    alt="Logo Dashboard"
+    width={500}
+    height={300}
+    className="h-[60px]  w-[210px] object-cover"
+  />
+</div>
 
       {/* Nav */}
       <nav className="flex-1 overflow-y-auto sidebar-scroll py-3 px-2">

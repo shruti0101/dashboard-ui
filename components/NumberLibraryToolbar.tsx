@@ -1,0 +1,48 @@
+'use client';
+
+import { Radio, ChevronDown, Search, SlidersHorizontal } from 'lucide-react';
+import { useState } from 'react';
+
+export default function NumberLibraryToolbar() {
+  const [pageSize, setPageSize] = useState('10');
+  const [query, setQuery] = useState('');
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-xl2 shadow-card px-4 py-3 flex items-center gap-3 flex-wrap">
+      <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-slate-700 whitespace-nowrap">
+        <Radio size={15} className="text-brand" />
+        Meta Number Library
+      </span>
+
+      <div className="relative">
+        <select
+          value={pageSize}
+          onChange={(e) => setPageSize(e.target.value)}
+          className="appearance-none border border-slate-200 rounded-lg pl-3 pr-7 py-2 text-[13px] font-medium text-slate-600 bg-white focus:outline-none focus:ring-2 focus:ring-brand/30"
+        >
+          <option>10</option>
+          <option>25</option>
+          <option>50</option>
+        </select>
+        <ChevronDown
+          size={13}
+          className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
+        />
+      </div>
+
+      <div className="relative flex-1 min-w-[240px]">
+        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search By Number, WABA, Or Display Name"
+          className="w-full border border-slate-200 rounded-lg pl-9 pr-3 py-2 text-[13px] text-slate-600 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand/30"
+        />
+      </div>
+
+      <button className="h-[38px] w-[38px] flex items-center justify-center bg-brand hover:bg-brand-dark transition-colors rounded-lg text-white shrink-0">
+        <SlidersHorizontal size={15} />
+      </button>
+    </div>
+  );
+}
